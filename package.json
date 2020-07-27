@@ -1,0 +1,24 @@
+{
+  "name": "habitracker",
+  "version": "1.0.0",
+  "description": "a habit tracking web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zwiqler94/Habitracker.git"
+  },
+  "keywords": [
+    "habit",
+    "tracking",
+    "goals"
+  ],
+  "author": "Jake Zwickler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zwiqler94/Habitracker/issues"
+  },
+  "homepage": "https://github.com/Zwiqler94/Habitracker#readme"
+}
