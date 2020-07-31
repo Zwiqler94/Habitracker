@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { HabitListComponent } from './habit-list/habit-list.component';
+import { MyListsComponent } from './my-lists/my-lists.component';
 
 
 
@@ -16,7 +17,8 @@ import { HabitListComponent } from './habit-list/habit-list.component';
   declarations: [
     AppComponent,
     MainScreenComponent,
-    HabitListComponent
+    HabitListComponent,
+    MyListsComponent
   ],
   imports: [
     AppRoutingModule,
