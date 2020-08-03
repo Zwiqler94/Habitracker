@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidenavService } from '../sidenav.service';
 
 @Component({
   selector: 'app-main-screen',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private drawer: SidenavService) { }
+
+  toggleDrawer(){
+    this.drawer.toggleDrawer();
+  }
 
   ngOnInit(): void {
   }

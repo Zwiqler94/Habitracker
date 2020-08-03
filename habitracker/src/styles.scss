@@ -2,3 +2,12 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.center{
+    text-align: center;
+    padding: 22.3% 0;
+}
+
+.inline{
+    display: inline;
+}

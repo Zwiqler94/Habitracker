@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidenavService } from '../sidenav.service';
 
 @Component({
   selector: 'app-new-habit',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewHabitComponent implements OnInit {
 
-  constructor() { }
+  constructor(private drawer: SidenavService) { }
+
+  toggleDrawer(){
+    this.drawer.toggleDrawer();
+  }
 
   ngOnInit(): void {
   }
