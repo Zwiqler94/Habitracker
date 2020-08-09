@@ -1,5 +1,5 @@
-import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
+import { AppPage } from '/Users/jacobzwickler/Desktop/Apps/GitProjects/Habitracker/habitracker/e2e/src/app.po';
 
 describe('workspace-project App', () => {
   let page: AppPage;

@@ -129,6 +129,7 @@
   },
   "defaultProject": "habitracker",
   "cli": {
-    "analytics": false
+    "defaultCollection": "@nativescript/schematics",
+    "analytics": "b3b9215b-f550-46aa-9b50-43d12a359ba5"
   }
 }

@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SidenavService {
   private drawer: MatDrawer;
 
-  public setDrawer(drawer: MatDrawer){
-    this.drawer = drawer
+  public setDrawer(drawer: MatDrawer): void {
+    this.drawer = drawer;
   }
 
-  public openDrawer(){
-    this.drawer.open()
+  public openDrawer(): void {
+    this.drawer.open();
   }
 
-  public closeDrawer(){
-    this.drawer.close()
+  public closeDrawer(): void {
+    this.drawer.close();
   }
 
   public toggleDrawer(): void {

@@ -1,39 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { SidenavService } from '../sidenav.service';
+import { SidenavService } from '@src/app/services/sidenav.service';
 
-export interface List {
+export interface IList {
   listName: string;
   listPercentageComplete: string;
 }
 
-
-const listData: List[] = [
+const listData: IList[] = [
   { listName: 'Health', listPercentageComplete: '54%' },
   { listName: 'Hobbies', listPercentageComplete: '26%' },
-  { listName: 'Chores', listPercentageComplete: '95%' }
+  { listName: 'Chores', listPercentageComplete: '95%' },
 ];
-
-
-
 
 @Component({
   selector: 'app-my-lists',
   templateUrl: './my-lists.component.html',
-  styleUrls: ['./my-lists.component.scss']
+  styleUrls: ['./my-lists.component.scss'],
 })
 export class MyListsComponent implements OnInit {
 
-  displayedColumns: string[] = ['listName', 'listPercentageComplete'];
-  
-  dataSource = listData;
+  public displayedColumns: string[] = ['listName', 'listPercentageComplete'];
+
+  public dataSource = listData;
 
   constructor(private drawer: SidenavService) { }
 
-  toggleDrawer() {
+  public toggleDrawer(): void {
     this.drawer.toggleDrawer();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { SidenavService } from '../sidenav.service';
+import { SidenavService } from '@src/app/services/sidenav.service';
 
 @Component({
   selector: 'app-habit-list',
   templateUrl: './habit-list.component.html',
-  styleUrls: ['./habit-list.component.scss']
+  styleUrls: ['./habit-list.component.scss'],
 })
 export class HabitListComponent implements OnInit {
 
   constructor(private drawer: SidenavService) { }
 
-  toggleDrawer(){
+  public toggleDrawer(): void {
     this.drawer.toggleDrawer();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }
