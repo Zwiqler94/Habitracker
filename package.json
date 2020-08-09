@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/Zwiqler94/Habitracker/issues"
   },
-  "homepage": "https://github.com/Zwiqler94/Habitracker#readme"
+  "homepage": "https://github.com/Zwiqler94/Habitracker#readme",
+  "dependencies": {
+    "@nativescript/schematics": "^10.0.2",
+    "@phenomnomnominal/tsquery": "^4.1.0",
+    "tslint": "^6.1.3"
+  }
 }
