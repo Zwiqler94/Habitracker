@@ -1,6 +1,6 @@
 <mat-drawer-container hasBackdrop="true">
     <mat-drawer mode="push" #drawer>
-        <button mat-flat-button>
+        <button mat-flat-button routerLink="/my-lists">
             My Lists
         </button>
     </mat-drawer>
@@ -9,7 +9,7 @@
             <button type="button" mat-flat-button color="primary" (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
-            <span class="spacer5px"> Habitracker</span>
+            <span class="spacer5px"> <h2 routerLink="/" >Habitracker</h2></span>
         </mat-toolbar>
         <router-outlet></router-outlet>
 

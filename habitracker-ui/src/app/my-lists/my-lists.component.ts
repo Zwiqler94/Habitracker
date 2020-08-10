@@ -23,6 +23,8 @@ export class MyListsComponent implements OnInit {
 
   public dataSource = listData;
 
+  public userName = 'Jacob'
+
   constructor(private drawer: SidenavService) { }
 
   public toggleDrawer(): void {
