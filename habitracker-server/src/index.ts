@@ -6,7 +6,7 @@ import { lookup } from "dns";
 const logger = getLogger(module);
 
 try {
-    connect('mongodb://localhost/Habitracker', { useNewUrlParser: true })
+    connect('mongodb://localhost:27017/Habitracker', { useNewUrlParser: true })
     const dbConnection = connection;
 } catch (err) {
     logger.error(err)
