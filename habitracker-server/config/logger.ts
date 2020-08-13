@@ -1,5 +1,5 @@
 import { createLogger, transports, format } from 'winston';
-const { combine, prettyPrint, printf, timestamp } = format;
+const { combine, printf, timestamp } = format;
 
 const transport = {
     console: new transports.Console()

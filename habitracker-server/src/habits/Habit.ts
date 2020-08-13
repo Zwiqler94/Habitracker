@@ -9,6 +9,6 @@ const habitSchema = new Schema({
     datesCompleted: [Date],
     percentCompleted: Number,
     listId: String
-})
+});
 
-export const Habit = model('Habit', habitSchema)
+export const Habit = model('Habit', habitSchema);

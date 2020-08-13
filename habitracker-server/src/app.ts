@@ -11,12 +11,18 @@ app.get("/", (req: any, res: any) => {
     res.send("invalid request");
 });
 
-app.post("/habit", (req: any, res: any) => {
-    HabitController.create(req, res)
+app.post("/habits", (req: any, res: any) => {
+    HabitController.create(req, res);
 });
 
-app.post("/habit-list", (req: any, res: any) => {
-    HabitListController.create(req, res)
+app.post("/habits/:id/complete", (req: any, res: any) => {
+    HabitController.addCompletion(req, res)
 });
+
+app.post("/habit-lists", (req: any, res: any) => {
+    HabitListController.create(req, res);
+});
+
+
 
 export { app };
