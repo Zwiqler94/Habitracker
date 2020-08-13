@@ -5,9 +5,13 @@ import { lookup } from "dns";
 
 const logger = getLogger(module);
 
-try {
-    connect('mongodb://localhost:27017/Habitracker', { useNewUrlParser: true })
+async function monogoSetup(): Promise<void> {
+    await connect('mongodb://localhost:27017/Habitracker', { useNewUrlParser: true })
     const dbConnection = connection;
+}
+
+try {
+    monogoSetup();
 } catch (err) {
     logger.error(err)
 }
