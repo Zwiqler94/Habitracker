@@ -28,10 +28,10 @@ class HabitController {
         try {
             logger.info(`adding completion...`, req.params.id);
             const timeAndDate = new Date().toISOString();
-            let habit = await Habit.findOneAndUpdate({ habitId: req.params.id }, { $addToSet: { datesCompleted:  timeAndDate} }, {new: true});
+            let habit = await Habit.findOneAndUpdate({ habitId: req.params.id }, { $addToSet: { datesCompleted: timeAndDate } }, { new: true });
             res.status(200).json({ message: habit });
         } catch (err) {
-            res.status(400).json({ message: err});
+            res.status(400).json({ message: err });
         }
     }
 
