@@ -23,7 +23,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+     
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
@@ -31,4 +31,5 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Update Version
+      working-directory: Habitracker/habitracker-server
       run: npm version from-git
