@@ -7,7 +7,7 @@ const logger = getLogger(module);
 class HabitController {
     public create = async (req, res) => {
         try {
-            logger.info(`creating habit...`, req.body);
+            logger.debug(`creating habit... ${req.body}`);
             const newHabit = new Habit({
                 habitId: uuid(),
                 name: req.body.name,
@@ -17,7 +17,7 @@ class HabitController {
                 listId: req.body.listId
             });
             newHabit.save();
-            res.status(200).json({ message: 'Success' });
+            res.status(201).json(newHabit.toJSON());
         } catch (err) {
             logger.error(err);
             res.status(400).json({ message: err });
@@ -26,26 +26,27 @@ class HabitController {
 
     public addCompletion = async (req, res) => {
         try {
-            logger.info(`adding completion...`, req.params.id);
+            logger.debug(`adding completion... ${req.params.id}`);
             const timeAndDate = new Date().toISOString();
             let habit: IHabit = await Habit.findOneAndUpdate({ habitId: req.params.id }, { $addToSet: { datesCompleted: timeAndDate } }, { new: true });
-            res.status(200).json({ message: habit });
+            res.status(201).json(habit.datesCompleted);
         } catch (err) {
             res.status(400).json({ message: err });
         }
     }
 
     public calculatePercentCompleted = async (req, res) => {
-       try{
-
-       let habit: IHabit = await Habit.findOne({ habitId: req.params.id });
-        const daysElaspedFromStartDate = new Date().getTime() -  new Date(habit.dateStarted).getTime();
-        // logger.info(`${daysElaspedFromStartDate}  ${new Date().toString()} ${new Date(habit.dateStarted).toString()}`)
-        // logger.info(Math.round(daysElaspedFromStartDate/(60*60*24*1000)));
-        res.status(200).json({message: {}});
-    } catch(err){
-        res.status(400);
-    }
+        try {
+            logger.debug(`calculating percentage of days habit was completed`);
+            const habit: IHabit = await Habit.findOne({ habitId: req.params.id });
+            const numberOfDaysSinceStart = new Date().getTime() - new Date(habit.dateStarted).getTime();
+            const daysCompleted = habit.datesCompleted.length  - Math.round(numberOfDaysSinceStart/(60*60*24*1000));
+            const percentageOfDaysCompleted = Math.round((daysCompleted / habit.datesCompleted.length) * 100);
+            res.status(201).json({ percentageOfDaysCompleted : percentageOfDaysCompleted });
+        } catch (err) {
+            logger.error(err);
+            res.status(400).json({ message: err });
+        }
 
     }
 
