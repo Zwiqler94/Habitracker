@@ -16,7 +16,11 @@ app.post("/habits", (req: any, res: any) => {
 });
 
 app.post("/habits/:id/complete", (req: any, res: any) => {
-    HabitController.addCompletion(req, res)
+    HabitController.addCompletion(req, res);
+});
+
+app.get("/habits/:id/complete", (req: any, res: any) => {
+    HabitController.calculatePercentCompleted(req, res);
 });
 
 app.post("/habit-lists", (req: any, res: any) => {

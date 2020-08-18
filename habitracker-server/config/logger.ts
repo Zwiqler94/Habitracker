@@ -11,6 +11,7 @@ const myFormat = printf(({ level, message, timestamp, ...rest }) => {
 
 
 const logger = createLogger({
+    level: 'debug',
     format: combine(timestamp(),myFormat),
     transports: [
         transport.console
