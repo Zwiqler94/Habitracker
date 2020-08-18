@@ -32,6 +32,6 @@ jobs:
     # Runs a single command using the runners shell
     - name: Update Version
       working-directory: habitracker-server/
-      run: ls
+      run: npm version from-git
       
       
