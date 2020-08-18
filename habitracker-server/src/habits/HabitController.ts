@@ -1,5 +1,5 @@
 import { getLogger } from '../../config/logger';
-import { Habit } from './Habit'
+import { Habit, IHabit } from './Habit'
 import { v4 as uuid } from 'uuid';
 
 const logger = getLogger(module);
@@ -28,11 +28,25 @@ class HabitController {
         try {
             logger.info(`adding completion...`, req.params.id);
             const timeAndDate = new Date().toISOString();
-            let habit = await Habit.findOneAndUpdate({ habitId: req.params.id }, { $addToSet: { datesCompleted: timeAndDate } }, { new: true });
+            let habit: IHabit = await Habit.findOneAndUpdate({ habitId: req.params.id }, { $addToSet: { datesCompleted: timeAndDate } }, { new: true });
             res.status(200).json({ message: habit });
         } catch (err) {
             res.status(400).json({ message: err });
         }
+    }
+
+    public calculatePercentCompleted = async (req, res) => {
+       try{
+
+       let habit: IHabit = await Habit.findOne({ habitId: req.params.id });
+        const daysElaspedFromStartDate = new Date().getTime() -  new Date(habit.dateStarted).getTime();
+        // logger.info(`${daysElaspedFromStartDate}  ${new Date().toString()} ${new Date(habit.dateStarted).toString()}`)
+        // logger.info(Math.round(daysElaspedFromStartDate/(60*60*24*1000)));
+        res.status(200).json({message: {}});
+    } catch(err){
+        res.status(400);
+    }
+
     }
 
     // public lookupHabit = async (req, res) => {
