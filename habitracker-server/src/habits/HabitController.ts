@@ -1,4 +1,4 @@
-import { getLogger } from '../../config/logger';
+import { getLogger } from '../../util/logger';
 import { Habit, IHabit } from './Habit'
 import { v4 as uuid } from 'uuid';
 
@@ -50,16 +50,7 @@ class HabitController {
 
     }
 
-    // public lookupHabit = async (req, res) => {
-    //     try {
-    //         logger.info(`looking up habit...`, req.body);
-
-    //         logger.info(habit)
-    //     } catch (err) {
-
-    //     }
-    // }
-
+    
 }
 
-export default new HabitController()
+export default new HabitController();
