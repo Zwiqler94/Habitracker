@@ -33,6 +33,7 @@ import { SidenavService } from '@src/app/services/sidenav.service';
     MatSidenavModule,
     MatTableModule,
     MatToolbarModule,
+    HttpClientModule,
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent],
