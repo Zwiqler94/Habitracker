@@ -1,6 +1,6 @@
 {
   "name": "habitracker",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "android": "tns run android --no-hmr",
     "ios": "tns run ios --no-hmr",
