@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { IList } from '@src/app/models/IList';
+import { IListOverview } from '@src/app/models/IListOverview';
 import { ListService } from '@src/app/services/list.service';
 import { SidenavService } from '@src/app/services/sidenav.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,7 +17,7 @@ export class MyListsComponent implements OnInit {
 
 
 
-  private listData: IList[] = [];
+  private listData: IListOverview[] = [];
   private myLists: any[];
 
   public displayedColumns: string[] = ['listName', 'listPercentageComplete'];
@@ -28,8 +28,8 @@ export class MyListsComponent implements OnInit {
     private ChangeDetectorRefs: ChangeDetectorRef) {
     this.setupLists();
   }
-  
-  public dataSource: IList[];
+
+  public dataSource: IListOverview[];
 
   public setupLists() {
     this.lists.getLists()
@@ -42,7 +42,10 @@ export class MyListsComponent implements OnInit {
       });
   }
 
+  public goToList(row): void {
+    console.log(row);
 
+  }
 
   public userName = 'Jacob';
 
