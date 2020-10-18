@@ -1,6 +1,6 @@
 {
   "name": "habitracker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a habit tracking web app",
   "main": "index.js",
   "scripts": {
