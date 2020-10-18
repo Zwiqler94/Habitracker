@@ -27,8 +27,6 @@
     "@types/mongoose": "^5.7.36",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
-    "class-validator": "^0.12.2",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
     "mocha": "^8.1.1",

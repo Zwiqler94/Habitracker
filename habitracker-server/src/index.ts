@@ -1,7 +1,7 @@
 import { app } from "./app";
 import { connect, connection } from 'mongoose';
-import { getLogger } from '../utils/logger'
-
+import { getLogger } from '../config/logger'
+import { lookup } from "dns";
 
 const logger = getLogger(module);
 
