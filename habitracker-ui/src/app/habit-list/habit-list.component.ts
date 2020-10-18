@@ -3,8 +3,8 @@ import { SidenavService } from '@src/app/services/sidenav.service';
 
 @Component({
   selector: 'app-habit-list',
-  templateUrl: './habit-list.component.html',
   styleUrls: ['./habit-list.component.scss'],
+  templateUrl: './habit-list.component.html',
 })
 export class HabitListComponent implements OnInit {
 

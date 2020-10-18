@@ -16,6 +16,7 @@ import { MyListsComponent } from '@src/app/my-lists/my-lists.component';
 import { SidenavService } from '@src/app/services/sidenav.service';
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     MainScreenComponent,
@@ -36,6 +37,6 @@ import { SidenavService } from '@src/app/services/sidenav.service';
     HttpClientModule,
   ],
   providers: [SidenavService],
-  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

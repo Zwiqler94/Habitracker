@@ -1,21 +1,20 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { IListOverview } from '@src/app/models/IListOverview';
 import { ListService } from '@src/app/services/list.service';
 import { SidenavService } from '@src/app/services/sidenav.service';
-import { MatTableDataSource } from '@angular/material/table';
-
-
-
-
 
 @Component({
   selector: 'app-my-lists',
-  templateUrl: './my-lists.component.html',
   styleUrls: ['./my-lists.component.scss'],
+  templateUrl: './my-lists.component.html',
 })
 export class MyListsComponent implements OnInit {
 
-
+  constructor(private drawer: SidenavService, private lists: ListService,
+              private ChangeDetectorRefs: ChangeDetectorRef) {
+    this.setupLists();
+  }
 
   private listData: IListOverview[] = [];
   private myLists: any[];
@@ -24,18 +23,15 @@ export class MyListsComponent implements OnInit {
 
   public unformattedList;
 
-  constructor(private drawer: SidenavService, private lists: ListService,
-    private ChangeDetectorRefs: ChangeDetectorRef) {
-    this.setupLists();
-  }
-
   public dataSource: IListOverview[];
 
-  public setupLists() {
+  public userName = 'Jacob';
+
+  public setupLists(): void {
     this.lists.getLists()
       .subscribe((data: any) => {
         this.myLists = data.lists;
-        for (var i = 0; i < this.myLists.length; i++) {
+        for (let i = 0; i < this.myLists.length; i++) {
           this.listData.push({ listName: this.myLists[i].name, listPercentageComplete: this.myLists[i].percentCompleted });
         }
         this.dataSource = this.listData;
@@ -47,9 +43,6 @@ export class MyListsComponent implements OnInit {
 
   }
 
-  public userName = 'Jacob';
-
-
   public toggleDrawer(): void {
     this.drawer.toggleDrawer();
   }
@@ -59,4 +52,3 @@ export class MyListsComponent implements OnInit {
   }
 
 }
-

@@ -3,8 +3,8 @@ import { SidenavService } from '@src/app/services/sidenav.service';
 
 @Component({
   selector: 'app-main-screen',
-  templateUrl: './main-screen.component.html',
   styleUrls: ['./main-screen.component.scss'],
+  templateUrl: './main-screen.component.html',
 })
 export class MainScreenComponent implements OnInit {
 
