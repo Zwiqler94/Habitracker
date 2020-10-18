@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { IListOverview } from '@src/app/models/IListOverview';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { IList } from '@src/app/models/IList';
 import { ListService } from '@src/app/services/list.service';
 import { SidenavService } from '@src/app/services/sidenav.service';
 
@@ -11,19 +10,21 @@ import { SidenavService } from '@src/app/services/sidenav.service';
 })
 export class MyListsComponent implements OnInit {
 
-  constructor(private drawer: SidenavService, private lists: ListService,
-              private ChangeDetectorRefs: ChangeDetectorRef) {
-    this.setupLists();
-  }
+ 
 
-  private listData: IListOverview[] = [];
+  private listData: IList[] = [];
   private myLists: any[];
 
   public displayedColumns: string[] = ['listName', 'listPercentageComplete'];
 
   public unformattedList;
 
-  public dataSource: IListOverview[];
+  constructor(private drawer: SidenavService, private lists: ListService,
+    private ChangeDetectorRefs: ChangeDetectorRef) {
+    this.setupLists();
+  }
+  
+  public dataSource: IList[];
 
   public userName = 'Jacob';
 
@@ -38,10 +39,7 @@ export class MyListsComponent implements OnInit {
       });
   }
 
-  public goToList(row): void {
-    console.log(row);
 
-  }
 
   public toggleDrawer(): void {
     this.drawer.toggleDrawer();
