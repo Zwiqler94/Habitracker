@@ -1,1 +1,16 @@
-<p>list-view works!</p>
+<div class="center-top">
+    <h1>{{userName}}'s Lists</h1>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="listName">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)='goToList(element.listName)' > {{element.listName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="listPercentageComplete">
+            <mat-header-cell *matHeaderCellDef> Percentage Complete </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.listPercentageComplete}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+    </mat-table>
+</div>
